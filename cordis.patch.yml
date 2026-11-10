@@ -1,0 +1,31 @@
+# dsh-lit-harvest bundle patch: mount the four harvesting tools.
+#
+# Every key below is a Config field (Schemastery schema); invalid values fail the
+# profile load loudly. Network access is limited to OpenAlex, Crossref, arXiv,
+# Europe PMC and Unpaywall over HTTPS, with explicit time and rate bounds.
+- insert:
+    - id: dsh-lit-harvest
+      name: dsh-lit-harvest
+      config:
+        # Master switch. On by default; `false` mounts no tools at all.
+        enabled: true
+        # Run-record fallback root, resolved against the harness working directory.
+        root: .lit-harvest
+        # Contact address for the polite pool and Unpaywall. Strongly recommended;
+        # Unpaywall DOI lookups refuse to run without it.
+        # mailto: you@example.org
+        # User-Agent sent to metadata APIs.
+        userAgent: dsh-lit-harvest/0.1.0 (https://github.com/PerryLink/dsh-lit-harvest)
+        # Per-request deadline.
+        timeoutMs: 15000
+        # Minimum delay between two requests to the same host.
+        minIntervalMs: 150
+        # Bounded retries for 429/503 responses.
+        retries: 1
+        # Hard caps. The loop stops at maxRounds even when still insufficient.
+        maxResults: 25
+        maxRounds: 3
+        perRound: 10
+        # Default quotas used by lit_harvest_run and lit_sufficiency.
+        minCore: 5
+        minTotal: 10
