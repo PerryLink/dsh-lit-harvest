@@ -1,0 +1,12 @@
+# Nearest-workspace root for this standalone plugin package, so pnpm treats it
+# as an independent workspace even when checked out next to other package
+# managers' workspaces (the family convention).
+packages:
+  - .
+
+# pnpm ignores dependency build scripts by default (ERR_PNPM_IGNORED_BUILDS).
+# esbuild (via vitest/vite) is the only one this package needs.
+allowBuilds:
+  esbuild: true
+
+verifyDepsBeforeRun: false
