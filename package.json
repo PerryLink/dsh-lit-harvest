@@ -76,6 +76,7 @@
     "clean": "node -e \"require('node:fs').rmSync('lib',{recursive:true,force:true})\"",
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json",
     "test": "vitest run",
+    "check:lockfile": "node scripts/check-lockfile-drift.mjs",
     "test:watch": "vitest",
     "verify:package": "node scripts/verify-package.mjs"
   }

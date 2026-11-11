@@ -104,11 +104,14 @@ run id = `sha256(topic, subtopics, queries, 论文标识)[:16]`，同一检索�
 
 ```sh
 pnpm install
+pnpm run check:lockfile
 pnpm typecheck
 pnpm test
 pnpm build
 pnpm verify:package
 ```
+
+锁文件按 `pnpm install --lockfile-only` 的原样提交（两段：pnpm 自身的管理文档 + 项目文档），本地 `pnpm install` 不会改写它；`pnpm run check:lockfile` 在它与 `package.json` 不一致或丢失该形式时失败。
 
 测试用 scripted HTTP 与内联 fixture，不需要外网。
 
