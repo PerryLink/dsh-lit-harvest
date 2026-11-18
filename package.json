@@ -1,6 +1,6 @@
 {
   "name": "dsh-lit-harvest",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Literature harvesting for DeepSeek Harness: deterministic multi-source search (OpenAlex, Crossref, arXiv, Europe PMC), open-access link resolution through Unpaywall, quota + subtopic sufficiency checks with explicit gaps, and a bounded harvest loop whose run record lands in REP. No LLM, no scraping, no CNKI bypass.",
   "author": "PerryLink contributors",
   "license": "Apache-2.0",
