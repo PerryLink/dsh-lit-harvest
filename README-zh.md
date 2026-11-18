@@ -80,7 +80,7 @@ run id = `sha256(topic, subtopics, queries, 论文标识)[:16]`，同一检索�
 
 | | |
 |---|---|
-| DeepSeek Harness | `dsh-v0.2.1-rc.5`（本机实测）—— peer 区间 `>=0.2.1-0 <0.3.0 \|\| >=0.2.2-0 <0.3.0` |
+| DeepSeek Harness | `dsh-v0.2.2-rc.4`（本机实测）—— peer 区间 `>=0.2.1-0 <0.3.0 \|\| >=0.2.2-0 <0.3.0` |
 | Node | `^22.19.0 \|\| >=24.9.0`（实测 `24.22.1`），仅 ESM |
 | Peers | `@perrylink/dsh-research-core ^0.1.0`、`@deepseek-ai/cordis ^4.0.5-alpha.1`、`@deepseek-ai/dsh-tools`、`@deepseek-ai/schemastery ^3.18.5-alpha.1` |
 | 运行时依赖 | **零** |
