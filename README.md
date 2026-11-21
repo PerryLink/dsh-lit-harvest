@@ -1,14 +1,23 @@
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-lit-harvest-hero-en-dark.webp">
+  <img src="docs/assets/dsh-lit-harvest-hero-en-light.webp" width="100%" alt="dsh-lit-harvest: one fixture DOI found in all four scripted sources — sources[] openalex, crossref, arxiv and europepmc merged into one record, three OA pdf links unioned, citedBy raised from 12 to 15, and the sufficiency gaps[] fracture with its next query on the right">
+</picture>
+
 # dsh-lit-harvest
 
 **Search four indexes, resolve open-access PDFs, and stop when the evidence is sufficient — deterministically.**
 
 *OpenAlex + Crossref + arXiv + Europe PMC in one call, Unpaywall for OA links, quota + subtopic coverage with explicit gaps, and a bounded harvest loop whose run record lands in REP. No LLM in the loop, no scraping, no paywall bypass.*
 
+[简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%5E22.19%20%7C%7C%20%3E%3D24.9-brightgreen.svg)]()
 [![DSH plugin](https://img.shields.io/badge/dsh--plugin-✅-green)](https://github.com/topics/dsh-plugin)
 
-English · [简体中文](README-zh.md)
+</div>
 
 ---
 
@@ -22,6 +31,14 @@ English · [简体中文](README-zh.md)
 | `lit_harvest_run` | Bounded loop: search → sufficiency → gap-driven next round; stops at sufficiency or `maxRounds`; persists one run record |
 
 Every hit carries its source, source id, `fetchedAt` and the query that found it. A source failure is reported as `{source, code, message}` and never becomes an empty result set.
+
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-lit-harvest-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-lit-harvest-flow-v5-light.svg" width="100%" alt="dsh-lit-harvest structure: a query fans out to OpenAlex, Crossref, arXiv and Europe PMC, hits are merged by DOI then arXiv id then normalized title, quota and subtopic coverage produce explicit gaps and next-round queries, and the bounded loop persists one REP run record; the labels inside the diagram are the real tool and field names">
+</picture>
+
+*Structure: search → merge → suffice; `sufficiency` and the run record are the two outputs, and `lit_harvest_run` keeps looping until the quota and subtopic coverage are satisfied or `maxRounds` is reached. The token labels inside the diagram are the real tool and field names, so the same picture serves all five languages.*
 
 ## Data sources
 
@@ -101,6 +118,11 @@ The run id is `sha256(topic, subtopics, queries, paper identifiers)[:16]`, so re
 | `minCore` / `minTotal` | `5` / `10` | default quotas |
 
 ## Development
+
+![dsh-lit-harvest test suite: a real run of the 6 test files — 4 sufficiency tests, 3 package tests, 3 merge/dedupe tests, 6 runtime tests, 5 provider tests and the mount contract all pass](docs/assets/dsh-lit-harvest-demo.gif)
+
+*Animated: the real `pnpm test` output on 2026-11-21 (6 test files, 22 tests, scripted HTTP — no network). The plugin has no CLI, so its own suite is the run — four sources parsed, one DOI merged, gaps and the run record.*
+
 
 ```sh
 pnpm install

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660" role="img" aria-label="dsh-lit-harvest structure diagram">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#131a2a"/><stop offset="1" stop-color="#0c1016"/></linearGradient>
+<filter id="soft" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#16122c" flood-opacity="0.45"/></filter>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.4" markerHeight="6.4" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8496f5"/></marker>
+</defs>
+<rect width="1100" height="660" fill="url(#bg)"/>
+<text x="44" y="58" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="28" font-weight="700">dsh-lit-harvest</text>
+<text x="44" y="88" fill="#a8b1c4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="15">query → 4 sources → merge by DOI/arXiv/title → gaps[] → next round → REP run record</text>
+<rect x="919.953125" y="36" width="136.046875" height="26" rx="13.0" fill="#202839"/>
+<text x="931.953125" y="53.08" fill="#8496f5" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12" font-weight="700">5 allowlisted hosts</text>
+<rect x="44" y="120" width="214" height="250" rx="18" fill="#1b2231" stroke="#2e374b" stroke-width="1.5" filter="url(#soft)"/>
+<text x="62" y="146" fill="#737b8d" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="12" font-weight="700">01</text>
+<text x="62" y="172" fill="#f0f3f9" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="16.5" font-weight="700">Search</text>
+<text x="62" y="196" fill="#a8b1c4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">query → four sources</text>
+<rect x="62" y="209" width="178" height="26" rx="8" fill="#202839"/>
+<text x="72" y="227" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">lit_search</text>
+<rect x="62" y="241" width="178" height="26" rx="8" fill="#202839"/>
+<text x="72" y="259" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">perSource counts</text>
+<rect x="62" y="273" width="178" height="26" rx="8" fill="#202839"/>
+<text x="72" y="291" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">errors[] per source</text>
+<line x1="260" y1="245.0" x2="276" y2="245.0" stroke="#8496f5" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="278" y="120" width="214" height="250" rx="18" fill="#1b2231" stroke="#2e374b" stroke-width="1.5" filter="url(#soft)"/>
+<text x="296" y="146" fill="#737b8d" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="12" font-weight="700">02</text>
+<text x="296" y="172" fill="#f0f3f9" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="16.5" font-weight="700">Merge</text>
+<text x="296" y="196" fill="#a8b1c4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">DOI → arXiv → title</text>
+<rect x="296" y="209" width="178" height="26" rx="8" fill="#202839"/>
+<text x="306" y="227" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">dedupe key</text>
+<rect x="296" y="241" width="178" height="26" rx="8" fill="#202839"/>
+<text x="306" y="259" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">pdfUrls[] union</text>
+<rect x="296" y="273" width="178" height="26" rx="8" fill="#202839"/>
+<text x="306" y="291" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">citedBy max</text>
+<line x1="494" y1="245.0" x2="510" y2="245.0" stroke="#8496f5" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="512" y="120" width="214" height="250" rx="18" fill="#1b2231" stroke="#2e374b" stroke-width="1.5" filter="url(#soft)"/>
+<text x="530" y="146" fill="#737b8d" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="12" font-weight="700">03</text>
+<text x="530" y="172" fill="#f0f3f9" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="16.5" font-weight="700">Suffice</text>
+<text x="530" y="196" fill="#a8b1c4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">quota + coverage</text>
+<rect x="530" y="209" width="178" height="26" rx="8" fill="#202839"/>
+<text x="540" y="227" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">lit_sufficiency</text>
+<rect x="530" y="241" width="178" height="26" rx="8" fill="#202839"/>
+<text x="540" y="259" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">gaps[]</text>
+<rect x="530" y="273" width="178" height="26" rx="8" fill="#202839"/>
+<text x="540" y="291" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">nextQueries[]</text>
+<rect x="752" y="120" width="304" height="148" rx="18" fill="#1b2231" stroke="#2e374b" stroke-width="1.5" filter="url(#soft)"/>
+<text x="772" y="148" fill="#8496f5" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14.5" font-weight="700">sufficiency</text>
+<rect x="992.578125" y="130" width="49.078125" height="18" rx="9.0" fill="#202839"/>
+<text x="1001.578125" y="142.57" fill="#8496f5" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="10.5">gaps[]</text>
+<text x="772" y="176" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">coreCount: 1 / minCore 2</text>
+<text x="772" y="198" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">totalCount: 3 / minTotal 3</text>
+<text x="772" y="220" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">gaps[]: fracture</text>
+<text x="772" y="242" fill="#a8b1c4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">next: fracture peridynamics</text>
+<rect x="752" y="288" width="304" height="122" rx="18" fill="#1b2231" stroke="#2e374b" stroke-width="1.5" filter="url(#soft)"/>
+<text x="772" y="316" fill="#a8b1c4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="14.5" font-weight="700">run record</text>
+<rect x="990.109375" y="298" width="51.828125" height="18" rx="9.0" fill="#202839"/>
+<text x="999.109375" y="310.57" fill="#a8b1c4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="10.5">REP v1</text>
+<text x="772" y="344" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">rounds[]: query → found</text>
+<text x="772" y="366" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">papers[]: merged</text>
+<text x="772" y="388" fill="#f0f3f9" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5">runId: sha256(…)[:16]</text>
+<rect x="752" y="430" width="304" height="82" rx="18" fill="#1b2231" stroke="#8496f5" stroke-width="1.6" filter="url(#soft)"/>
+<text x="772" y="458" fill="#f0f3f9" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13.5" font-weight="700">boundary</text>
+<text x="772" y="482" fill="#a8b1c4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">no LLM · no scraping</text>
+<text x="772" y="502" fill="#737b8d" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="10.5">a partial run is labelled partial</text>
+<path d="M730 245.0 H742" fill="none" stroke="#8496f5" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M742 210 V471" fill="none" stroke="#8496f5" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="742" y1="194" x2="750" y2="194" stroke="#8496f5" stroke-width="1.6" marker-end="url(#arr)"/>
+<line x1="742" y1="349" x2="750" y2="349" stroke="#8496f5" stroke-width="1.6" marker-end="url(#arr)"/>
+<line x1="742" y1="471" x2="750" y2="471" stroke="#8496f5" stroke-width="1.6" marker-end="url(#arr)"/>
+<line x1="44" y1="420" x2="714" y2="420" stroke="#2b3348" stroke-width="1"/>
+<text x="44" y="444" fill="#737b8d" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">A source failure becomes {source, code, message}; another source&#x27;s success is never inferred from it.</text>
+<text x="44" y="464" fill="#737b8d" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">Sufficiency is lexical and recomputable: Latin tokens plus CJK unigrams and bigrams, no embeddings.</text>
+<line x1="44" y1="564" x2="1056" y2="564" stroke="#2b3348" stroke-width="1"/>
+<text x="44" y="588" fill="#a8b1c4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">config: root · mailto · userAgent · timeoutMs · minIntervalMs · retries · maxResults · maxRounds · perRound</text>
+<text x="44" y="610" fill="#737b8d" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">5 allowlisted hosts · redirects refused · no paywall bypass · zero runtime dependencies · tests use scripted HTTP</text>
+</svg>

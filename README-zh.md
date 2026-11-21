@@ -1,14 +1,23 @@
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-lit-harvest-hero-zh-dark.webp">
+  <img src="docs/assets/dsh-lit-harvest-hero-zh-light.webp" width="100%" alt="dsh-lit-harvest 配图：fixture 里的同一个 DOI 在四个脚本化源中命中 —— sources[] 合并 openalex、crossref、arxiv 与 europepmc 为一条记录，3 条 OA pdf 链接取并集，citedBy 从 12 抬到 15；右侧是充分性检查的 gaps[] fracture 与它的下一轮 query">
+</picture>
+
 # dsh-lit-harvest
 
 **一次搜四个索引，解析 OA 全文链接，证据够了就停 —— 全程确定性。**
 
 *OpenAlex + Crossref + arXiv + Europe PMC 一次调用，Unpaywall 解析 OA 链接，配额 + 子主题覆盖与显式缺口，有界采集循环，运行记录落进 REP。循环里没有 LLM，不抓站，不绕付费墙。*
 
+[English](README.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%5E22.19%20%7C%7C%20%3E%3D24.9-brightgreen.svg)]()
 [![DSH plugin](https://img.shields.io/badge/dsh--plugin-✅-green)](https://github.com/topics/dsh-plugin)
 
-[English](README.md) · 简体中文
+</div>
 
 ---
 
@@ -22,6 +31,14 @@
 | `lit_harvest_run` | 有界循环：检索 → 充分性 → 按缺口下一轮；达标或 `maxRounds` 停止；持久化一条运行记录 |
 
 每条命中都带来源、来源 id、`fetchedAt` 与命中它的 query。某个源失败会记成 `{source, code, message}`，绝不会变成“没有结果”。
+
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-lit-harvest-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-lit-harvest-flow-v5-light.svg" width="100%" alt="dsh-lit-harvest 结构图：一次 query 扇出到 OpenAlex、Crossref、arXiv 与 Europe PMC，命中先按 DOI、再按 arXiv id、最后按归一化标题合并，配额与子主题覆盖给出显式缺口和下一轮 query，有界循环最终落一条 REP 运行记录；图内标签就是真实的工具名与字段名">
+</picture>
+
+*结构：检索 → 合并 → 判定；`sufficiency` 与运行记录是两条输出，`lit_harvest_run` 会一直循环到配额与子主题覆盖都满足，或到达 `maxRounds`。图内只有工具名与字段名，五语共用同一张结构图。*
 
 ## 数据源
 
@@ -101,6 +118,11 @@ run id = `sha256(topic, subtopics, queries, 论文标识)[:16]`，同一检索�
 | `minCore` / `minTotal` | `5` / `10` | 默认配额 |
 
 ## 开发
+
+![dsh-lit-harvest 测试套件：6 个测试文件的真实运行 —— 4 个充分性测试、3 个包契约测试、3 个合并去重测试、6 个运行时测试、5 个 provider 测试与挂载契约全部通过](docs/assets/dsh-lit-harvest-demo.gif)
+
+*动图是 2026-11-21 真实运行的 `pnpm test` 输出（6 个测试文件、22 个测试，scripted HTTP，不联网）。插件没有 CLI，它自己的测试套件就是那次运行 —— 四个源被解析、一个 DOI 被合并、缺口与运行记录。*
+
 
 ```sh
 pnpm install
