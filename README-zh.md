@@ -11,6 +11,8 @@
 
 *OpenAlex + Crossref + arXiv + Europe PMC 一次调用，Unpaywall 解析 OA 链接，配额 + 子主题覆盖与显式缺口，有界采集循环，运行记录落进 REP。循环里没有 LLM，不抓站，不绕付费墙。*
 
+最近一次核验：DeepSeek Harness `dsh-v0.2.3-alpha.1`（2026-11-22）。
+
 [English](README.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
@@ -31,7 +33,6 @@
 | `lit_harvest_run` | 有界循环：检索 → 充分性 → 按缺口下一轮；达标或 `maxRounds` 停止；持久化一条运行记录 |
 
 每条命中都带来源、来源 id、`fetchedAt` 与命中它的 query。某个源失败会记成 `{source, code, message}`，绝不会变成“没有结果”。
-
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-lit-harvest-flow-v5-dark.svg">
@@ -122,7 +123,6 @@ run id = `sha256(topic, subtopics, queries, 论文标识)[:16]`，同一检索�
 ![dsh-lit-harvest 测试套件：6 个测试文件的真实运行 —— 4 个充分性测试、3 个包契约测试、3 个合并去重测试、6 个运行时测试、5 个 provider 测试与挂载契约全部通过](docs/assets/dsh-lit-harvest-demo.gif)
 
 *动图是 2026-11-21 真实运行的 `pnpm test` 输出（6 个测试文件、22 个测试，scripted HTTP，不联网）。插件没有 CLI，它自己的测试套件就是那次运行 —— 四个源被解析、一个 DOI 被合并、缺口与运行记录。*
-
 
 ```sh
 pnpm install

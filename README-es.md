@@ -11,6 +11,8 @@
 
 *OpenAlex + Crossref + arXiv + Europe PMC en una sola llamada, Unpaywall para enlaces OA, cuota + cobertura de subtemas con gaps explícitos, y un bucle de recolección acotado cuyo registro de ejecución aterriza en REP. Sin LLM en el bucle, sin scraping, sin saltarse paywalls.*
 
+Última verificación: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
@@ -31,7 +33,6 @@
 | `lit_harvest_run` | Bucle acotado: búsqueda → suficiencia → siguiente ronda guiada por gaps; se detiene al alcanzar suficiencia o `maxRounds`; persiste un registro de ejecución |
 
 Cada hit lleva su origen, su id de origen, `fetchedAt` y la query que lo encontró. Un fallo de un origen se reporta como `{source, code, message}` y nunca se convierte en un conjunto de resultados vacío.
-
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-lit-harvest-flow-v5-dark.svg">
@@ -122,7 +123,6 @@ El run id es `sha256(topic, subtopics, queries, paper identifiers)[:16]`, así q
 ![Suite de pruebas de dsh-lit-harvest: una ejecución real de los 6 archivos de prueba — 4 pruebas de suficiencia, 3 de paquete, 3 de fusión/dedupe, 6 de runtime, 5 de proveedores y el contrato de montaje pasan](docs/assets/dsh-lit-harvest-demo.gif)
 
 *Animado: la salida real de `pnpm test` el 2026-11-21 (6 archivos de prueba, 22 pruebas, HTTP con guion — sin red). El plugin no tiene CLI, así que su propia suite es la ejecución — cuatro orígenes parseados, un DOI fusionado, gaps y el registro de ejecución.*
-
 
 ```sh
 pnpm install

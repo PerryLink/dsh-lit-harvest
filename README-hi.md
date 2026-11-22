@@ -11,6 +11,8 @@
 
 *OpenAlex + Crossref + arXiv + Europe PMC एक ही कॉल में, OA links के लिए Unpaywall, स्पष्ट gaps के साथ quota + subtopic coverage, और एक सीमित harvest loop जिसका run record REP में जाता है। loop में कोई LLM नहीं, कोई scraping नहीं, paywall bypass नहीं।*
 
+अंतिम सत्यापन: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
@@ -31,7 +33,6 @@
 | `lit_harvest_run` | सीमित loop: search → sufficiency → gaps-चालित अगला round; sufficiency या `maxRounds` पर रुकता है; एक run record persist करता है |
 
 हर hit अपना source, source id, `fetchedAt` और उसे खोजने वाली query साथ रखता है। किसी स्रोत की विफलता `{source, code, message}` के रूप में दर्ज होती है और कभी खाली परिणाम-समुच्चय नहीं बनती।
-
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-lit-harvest-flow-v5-dark.svg">
@@ -122,7 +123,6 @@ run id `sha256(topic, subtopics, queries, paper identifiers)[:16]` है, इ�
 ![dsh-lit-harvest टेस्ट सूट: 6 टेस्ट फ़ाइलों की असली रन — 4 sufficiency टेस्ट, 3 package टेस्ट, 3 merge/dedupe टेस्ट, 6 runtime टेस्ट, 5 provider टेस्ट और mount contract सभी पास](docs/assets/dsh-lit-harvest-demo.gif)
 
 *एनिमेटेड: 2026-11-21 की असली `pnpm test` output (6 टेस्ट फ़ाइलें, 22 टेस्ट, scripted HTTP — कोई नेटवर्क नहीं)। इस plugin का CLI नहीं है, इसलिए उसका अपना suite ही वह रन है — चार स्रोत parse हुए, एक DOI merge हुआ, gaps और run record।*
-
 
 ```sh
 pnpm install
